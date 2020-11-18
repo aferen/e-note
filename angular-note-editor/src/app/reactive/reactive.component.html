@@ -1,0 +1,34 @@
+<!-- <div class="row">
+    <div class="col-md-6">
+        <h2>Reactive Form - Demo</h2>
+    </div>
+    <div class="col-md-6 action-buttons">
+        <button class="btn btn-info btn-sm" (click)="showFullScreen(true)">
+            Full Screen Preview
+        </button>
+    </div>
+</div>
+<hr /> -->
+<div style="margin-top: 5px;"></div>
+<form style="margin-bottom: 25px; float: left;" class="col-md-6" [formGroup]="templateForm" novalidate>
+  <div>
+    <h4 class="text-success bold">Editor  <font style="color: black" size="2">({{filename}})</font></h4>
+  </div>
+  <h5 #info class="text-success" *ngIf="infoMessage.length > 0 && isVisible">{{ infoMessage }}</h5>
+
+  <div class="editor">
+      <angular-markdown-editor textareaId="editor1" [options]="editorOptions" rows="20" formControlName="body"></angular-markdown-editor>
+  </div>
+</form>
+
+<div style="float: right;" class="col-md-6">
+  <div>
+    <button style="float: right; padding: 3px;" class="btn btn-info btn-sm" (click)="showFullScreen(true)">
+      Full Screen Preview
+    </button>
+    <h4 class="text-success bold">Preview</h4>
+  </div>
+  <div style="height: 533px;" class="result-preview outline">
+      <markdown [data]="markdownText"></markdown>
+  </div>
+</div>

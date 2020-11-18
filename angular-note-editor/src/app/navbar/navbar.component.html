@@ -1,0 +1,53 @@
+<nav style="padding: 3px;" class="navbar navbar-expand-lg navbar-dark bg-dark navbarColor">
+  <div class="container">
+    <a class="navbar-brand" href="/">Notebook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <!-- Left nav -->
+      <ul id="main-menu" class="nav navbar-nav mr-auto">
+        <li *ngFor="let dir of directory" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="cursor: pointer;">{{dir.name}}</a>
+          <ul class="dropdown-menu">
+            <li [ngClass]="(file.children)?' dropdown ':' font-weight-normal '" *ngFor="let file of dir.children">
+              <a (click)="openFile(file.path)" [style.color] = "(file.children) ? '#5cb85c' : '#0275d8'" style="cursor: pointer;" class="dropdown-item">{{file.name}}</a>
+              <ul *ngIf="file.children" class="dropdown-menu">
+                <li [ngClass]="(subfile.children)?' dropdown ':' font-weight-normal '" *ngFor="let subfile of file.children">
+                  <a (click)="openFile(subfile.path)" [style.color] = "(subfile.children) ? '#5cb85c' : '#0275d8'" style="cursor: pointer;" class="dropdown-item">{{subfile.name}}</a>
+                  <ul *ngIf="subfile.children" class="dropdown-menu">
+                    <li [ngClass]="(subfile2.children)?' dropdown ':' font-weight-normal '" *ngFor="let subfile2 of subfile.children">
+                      <a (click)="openFile(subfile2.path)" [style.color] = "(subfile2.children) ? '#5cb85c' : '#0275d8'" style="cursor: pointer;" class="dropdown-item">{{subfile2.name}}</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Right nav -->
+      <ul class="nav navbar-nav">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown"><mat-icon>more_vert</mat-icon></a>
+          <ul class="dropdown-menu">
+            <!-- <li class="dropdown-header">Folder</li> -->
+            <li><a class="dropdown-item" style="color: #0275d8; cursor: pointer;" (click)="createFolder()">Create Folder</a></li>
+            <li><a class="dropdown-item" style="color: #d9534f; cursor: pointer;" (click)="deleteFolder()">Delete Folder</a></li>
+            <li class="dropdown-divider"></li>
+            <!-- <li class="dropdown-header">File</li> -->
+            <li><a class="dropdown-item" style="color: #0275d8; cursor: pointer;" (click)="createFile()">Create File</a></li>
+            <li><a class="dropdown-item" style="color: #d9534f; cursor: pointer;" (click)="deleteFile()">Delete File</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a class="dropdown-item" style="color: #5cb85c; cursor: pointer;" (click)="downloadFiles()">Download All Files</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a class="dropdown-item" style="color: #d9534f; cursor: pointer;" (click)="logout()">Logout</a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

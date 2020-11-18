@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+@import "~ngx-toastr/toastr-bs4-alert";
+
+.italic {
+  font-style: italic;
+}
+.red {
+  color: red;
+}
+.faded {
+    opacity: 0.2;
+}
+.faded:hover {
+    opacity: 0.5;
+}
+.subtitle {
+  font-size: 20px;
+  font-style: italic;
+  color: grey;
+  margin-bottom: 10px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

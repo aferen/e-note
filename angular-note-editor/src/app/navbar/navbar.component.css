@@ -1,0 +1,17 @@
+.navbarColor {
+  background: #50a3a2;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#50a3a2),
+    to(#50a3a2)
+  );
+  background: linear-gradient(to bottom right, #50a3a2 0%, #50a3a2 100%);
+}
+a:active{
+  background: transparent;
+}
+.dropdown-menu{
+  border-color: transparent;
+}

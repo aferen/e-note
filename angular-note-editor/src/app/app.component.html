@@ -1,0 +1,4 @@
+<app-navbar *ngIf="user&&page!=='login'" [directoryTemp]="directory"></app-navbar>
+<div style="margin-top: 0px; padding: 0px;" id="demo-container" class="container-fluid body-content">
+  <router-outlet></router-outlet>
+</div>

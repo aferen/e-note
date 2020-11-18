@@ -1,0 +1,30 @@
+<div class="wrapper">
+	<div class="container">
+		<h1 style="color:white;">Welcome</h1>
+
+		<form class="form">
+			<input type="text" #username placeholder="Username">
+			<input type="password" #password placeholder="Password">
+			<button (click)="login(username.value,password.value)" type="submit" id="login-button">Login</button>
+    </form>
+
+    </div>
+
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<div>
+  <a *ngIf="user" (click)="goHome()" type="submit" id="homeButton"></a>
+</div>
+
+
